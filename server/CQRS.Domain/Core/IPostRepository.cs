@@ -2,10 +2,10 @@
 {
     public interface IPostRepository
     {
-        Post GetPostAsync(Guid guid);
-        List<Post> GetPostsAsync(Guid guid);
-        void AddPostAsync(Post post);
-        void UpdatePostAsync(Post post);
-        void DeletePostAsync(Guid guid);
+        Post GetPost(Guid guid);
+        List<Post> GetPosts();
+        void AddPost(Post post);
+        void UpdatePost(Post post);
+        void DeletePost(Guid guid);
     }
 }

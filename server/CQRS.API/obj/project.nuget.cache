@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wF+NVSkNijZrWu3o9wFohFxKWKyRjPTlAgOWzDHguzuXQHC0AX6N+EJshltCKgsCVKptLoUlJaxrguBacSNNTA==",
+  "dgSpecHash": "9NCBIzH04zvg2ikCvXBCgbZkUc0g/gfuUDuhCXL7GBFJvcIg8YBwjm9gN0IHjUPW9TEZsifd+RNB2KvVHGqPEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ulanicki\\OneDrive - Primesoft Polska Sp. z o.o\\Dokumenty\\Projekt\\server\\CQRS.API\\CQRS.API.csproj",
   "expectedPackageFiles": [
@@ -42,8 +42,9 @@
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.3.0\\swashbuckle.aspnetcore.annotations.6.3.0.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.0\\swashbuckle.aspnetcore.swagger.6.3.0.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.0\\swashbuckle.aspnetcore.swaggergen.6.3.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",

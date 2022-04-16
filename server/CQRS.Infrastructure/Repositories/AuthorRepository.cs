@@ -8,8 +8,12 @@ namespace CQRS.Infrastructure.Repositories
     {
         private static readonly IMapper _mapper = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<Post, Database.Models.Post>();
-            cfg.CreateMap<Author, Database.Models.Author>();
+            cfg.CreateMap<Post, Database.Models.Post>()
+                .ForMember(p => p.PostId, opt => opt.MapFrom(src => src.Id))
+                .ReverseMap();
+            cfg.CreateMap<Author, Database.Models.Author>()
+                .ForMember(a => a.AuthorId, opt => opt.MapFrom(src => src.Id))
+                .ReverseMap();
         }).CreateMapper();
 
         private readonly PostDbContext _dbContext;
@@ -18,14 +22,14 @@ namespace CQRS.Infrastructure.Repositories
         {
             _dbContext = dbContext;
         }
-        public void AddAuthorAsync(Author author)
+        public void AddAuthor(Author author)
         {
             var authorDb = _mapper.Map<Database.Models.Author>(author);
             _dbContext.Add(authorDb);
             _dbContext.SaveChanges();
         }
 
-        public void DeleteAuthorAsync(Guid guid)
+        public void DeleteAuthor(Guid guid)
         {
             var authorDb = _dbContext.Authors.FirstOrDefault(a => a.AuthorId == guid);
             if (authorDb == null) return;
@@ -34,7 +38,7 @@ namespace CQRS.Infrastructure.Repositories
             _dbContext.SaveChanges();
         }
 
-        public Author GetAuthorAsync(Guid guid)
+        public Author GetAuthor(Guid guid)
         {
             var authorDb = _dbContext.Authors
                 .FirstOrDefault(a => a.AuthorId == guid);
@@ -42,14 +46,14 @@ namespace CQRS.Infrastructure.Repositories
             return _mapper.Map<Author>(authorDb);
         }
 
-        public List<Author> GetAuthorsAsync(Guid guid)
+        public List<Author> GetAuthors()
         {
             var authorsDb = _dbContext.Authors;
 
             return _mapper.Map<List<Author>>(authorsDb);
         }
 
-        public void UpdateAuthorAsync(Author author)
+        public void UpdateAuthor(Author author)
         {
             var authorDb = _dbContext.Authors.FirstOrDefault(a => a.AuthorId == author.Id);
             if (authorDb == null) return;

@@ -2,10 +2,10 @@
 {
     public interface IAuthorRepository
     {
-        Author GetAuthorAsync(Guid guid);
-        List<Author> GetAuthorsAsync(Guid guid);
-        void AddAuthorAsync(Author post);
-        void UpdateAuthorAsync(Author post);
-        void DeleteAuthorAsync(Guid guid);
+        Author GetAuthor(Guid guid);
+        List<Author> GetAuthors();
+        void AddAuthor(Author post);
+        void UpdateAuthor(Author post);
+        void DeleteAuthor(Guid guid);
     }
 }
