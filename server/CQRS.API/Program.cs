@@ -3,8 +3,8 @@ using CQRS.Infrastructure.Database;
 using CQRS.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
 using System.Reflection;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .AddControllers()
-    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
+    .AddNewtonsoftJson(options => options.SerializerSettings.Converters.Add(new StringEnumConverter()));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -28,8 +27,17 @@ builder.Services.AddSwaggerGen(c =>
     c.EnableAnnotations();
 });
 
+builder.Services.AddLogging((builder) =>
+{
+    builder.AddApplicationInsights(Environment.GetEnvironmentVariable("InstrumentationKey"));
+});
+
+//builder.Configuration.AddAzureKeyVault(
+//        new Uri(Environment.GetEnvironmentVariable("KeyVault__URL")!),
+//        new ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET_ID));
+
 builder.Services.AddDbContext<PostDbContext>(optionsBuilder =>
-    optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), options =>
+    optionsBuilder.UseSqlServer(builder.Configuration["Database"], options =>
     {
         options.EnableRetryOnFailure();
         options.CommandTimeout(15);
@@ -49,9 +57,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.UseRouting();
+
+app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {

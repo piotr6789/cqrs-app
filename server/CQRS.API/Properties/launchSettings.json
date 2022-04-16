@@ -14,18 +14,12 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "InstrumentationKey": "3d2a7854-0266-4f59-825b-bf39214c0a45",
+        "KeyVault__URL": "https://cqrs-app-kv.vault.azure.net/"
       },
       "applicationUrl": "https://localhost:7278;http://localhost:5278",
       "dotnetRunMessages": true
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
     },
     "Docker": {
       "commandName": "Docker",
