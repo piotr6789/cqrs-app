@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-API", "cqrs-app\CQRS-API.csproj", "{89931718-9D23-4C92-9853-C238049A0904}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Domain", "CQRS.Domain\CQRS.Domain.csproj", "{AB2AFAD3-E530-4DCD-8B39-C7E675EC252D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{F70A84DF-E346-4D05-BBE4-F26CC55E5C3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Infrastructure", "CQRS.Infrastructure\CQRS.Infrastructure.csproj", "{079905DF-C9D6-4804-80F7-FD56C5C7F6AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{24495AD2-98BE-4E43-8D16-2D3C022A9EC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.API", "CQRS.API\CQRS.API.csproj", "{64A667BC-052C-4BA9-820A-654A0F3DD79E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89931718-9D23-4C92-9853-C238049A0904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89931718-9D23-4C92-9853-C238049A0904}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89931718-9D23-4C92-9853-C238049A0904}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89931718-9D23-4C92-9853-C238049A0904}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F70A84DF-E346-4D05-BBE4-F26CC55E5C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F70A84DF-E346-4D05-BBE4-F26CC55E5C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F70A84DF-E346-4D05-BBE4-F26CC55E5C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F70A84DF-E346-4D05-BBE4-F26CC55E5C3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24495AD2-98BE-4E43-8D16-2D3C022A9EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24495AD2-98BE-4E43-8D16-2D3C022A9EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24495AD2-98BE-4E43-8D16-2D3C022A9EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24495AD2-98BE-4E43-8D16-2D3C022A9EC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB2AFAD3-E530-4DCD-8B39-C7E675EC252D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB2AFAD3-E530-4DCD-8B39-C7E675EC252D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB2AFAD3-E530-4DCD-8B39-C7E675EC252D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB2AFAD3-E530-4DCD-8B39-C7E675EC252D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{079905DF-C9D6-4804-80F7-FD56C5C7F6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079905DF-C9D6-4804-80F7-FD56C5C7F6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079905DF-C9D6-4804-80F7-FD56C5C7F6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079905DF-C9D6-4804-80F7-FD56C5C7F6AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A667BC-052C-4BA9-820A-654A0F3DD79E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A667BC-052C-4BA9-820A-654A0F3DD79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A667BC-052C-4BA9-820A-654A0F3DD79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A667BC-052C-4BA9-820A-654A0F3DD79E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
