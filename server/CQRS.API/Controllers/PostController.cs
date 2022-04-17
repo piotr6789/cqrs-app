@@ -1,4 +1,7 @@
-﻿using CQRS.Domain;
+﻿using CQRS.Domain.Models;
+using CQRS.Infrastructure.Commands.PostCommands;
+using CQRS.Infrastructure.Queries.PostQueries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -10,22 +13,22 @@ namespace CQRS.API.Controllers
     public class PostController : Controller
     {
         private readonly ILogger<PostController> _logger;
-        private readonly IPostRepository _postRepository;
+        private readonly IMediator _postMediator;
 
-        public PostController(ILogger<PostController> logger, IPostRepository postRepository)
+        public PostController(ILogger<PostController> logger, IMediator postMediator)
         {
             _logger = logger;
-            _postRepository = postRepository;
+            _postMediator = postMediator;
         }
 
         [SwaggerOperation(Summary = "Get a post")]
         [SwaggerResponse(200, type: typeof(Post))]
         [HttpGet("{guid}")]
-        public IActionResult GetPost(string guid)
+        public async Task<IActionResult> GetPost(string guid)
         {
             try
             {
-                var result = _postRepository.GetPost(new Guid(guid));
+                var result = await _postMediator.Send(new GetPostByIdQuery(new Guid(guid)));
                 return Ok(result);
             }
             catch (Exception ex)
@@ -38,11 +41,11 @@ namespace CQRS.API.Controllers
         [SwaggerOperation(Summary = "Get every post")]
         [SwaggerResponse(200, type: typeof(List<Post>))]
         [HttpGet("posts")]
-        public IActionResult GetPosts()
+        public async Task<IActionResult> GetPosts()
         {
             try
             {
-                var result = _postRepository.GetPosts();
+                var result = await _postMediator.Send(new GetPostListQuery());
                 return Ok(result);
             }
             catch (Exception ex)
@@ -55,12 +58,12 @@ namespace CQRS.API.Controllers
         [SwaggerOperation(Summary = "Delete a post")]
         [SwaggerResponse(200, type: typeof(List<Post>))]
         [HttpDelete("delete/{guid}")]
-        public IActionResult DeletePost(string guid)
+        public async Task<IActionResult> DeletePost(string guid)
         {
             try
             {
-                _postRepository.DeletePost(new Guid(guid));
-                return Ok();
+                var result = await _postMediator.Send(new DeletePostCommand(new Guid(guid)));
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -72,12 +75,12 @@ namespace CQRS.API.Controllers
         [SwaggerOperation(Summary = "Add a post")]
         [SwaggerResponse(200, type: typeof(List<Post>))]
         [HttpPost("add")]
-        public IActionResult AddPost([FromBody]Post post)
+        public async Task<IActionResult> AddPost([FromBody]Post post)
         {
             try
             {
-                _postRepository.AddPost(post);
-                return Ok();
+                var result = await _postMediator.Send(new AddPostCommand(post));
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -89,12 +92,12 @@ namespace CQRS.API.Controllers
         [SwaggerOperation(Summary = "Update a post")]
         [SwaggerResponse(200, type: typeof(List<Post>))]
         [HttpPut("update")]
-        public IActionResult UpdatePost([FromBody]Post post)
+        public async Task<IActionResult> UpdatePost([FromBody]Post post)
         {
             try
             {
-                _postRepository.UpdatePost(post);
-                return Ok();
+                var result = await _postMediator.Send(new UpdatePostCommand(post));
+                return Ok(result);
             }
             catch (Exception ex)
             {

@@ -1,20 +1,18 @@
-using CQRS.Domain;
+using CQRS.Domain.Core;
 using CQRS.Infrastructure.Database;
-using CQRS.Infrastructure.Repositories;
+using CQRS.Infrastructure.Providers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Converters;
 using System.Reflection;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services
     .AddControllers()
     .AddNewtonsoftJson(options => options.SerializerSettings.Converters.Add(new StringEnumConverter()));
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -27,10 +25,7 @@ builder.Services.AddSwaggerGen(c =>
     c.EnableAnnotations();
 });
 
-builder.Services.AddLogging((builder) =>
-{
-    builder.AddApplicationInsights(Environment.GetEnvironmentVariable("InstrumentationKey"));
-});
+builder.Logging.AddApplicationInsights(builder.Configuration["InstrumentationKey"]);
 
 //builder.Configuration.AddAzureKeyVault(
 //        new Uri(Environment.GetEnvironmentVariable("KeyVault__URL")!),
@@ -43,12 +38,12 @@ builder.Services.AddDbContext<PostDbContext>(optionsBuilder =>
         options.CommandTimeout(15);
     }));
 
-builder.Services.AddScoped<IPostRepository, PostRepository>();
-builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+builder.Services.AddScoped<IPostProvider, PostProvider>();
+builder.Services.AddScoped<IAuthorProvider, AuthorProvider>();
+builder.Services.AddMediatR(typeof(PostProvider).Assembly);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

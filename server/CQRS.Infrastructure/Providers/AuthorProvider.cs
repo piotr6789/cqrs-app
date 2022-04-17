@@ -1,16 +1,14 @@
 ﻿using AutoMapper;
-using CQRS.Domain;
+using CQRS.Domain.Models;
+using CQRS.Domain.Core;
 using CQRS.Infrastructure.Database;
 
-namespace CQRS.Infrastructure.Repositories
+namespace CQRS.Infrastructure.Providers
 {
-    public class AuthorRepository : IAuthorRepository
+    public class AuthorProvider : IAuthorProvider
     {
         private static readonly IMapper _mapper = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<Post, Database.Models.Post>()
-                .ForMember(p => p.PostId, opt => opt.MapFrom(src => src.Id))
-                .ReverseMap();
             cfg.CreateMap<Author, Database.Models.Author>()
                 .ForMember(a => a.AuthorId, opt => opt.MapFrom(src => src.Id))
                 .ReverseMap();
@@ -18,24 +16,28 @@ namespace CQRS.Infrastructure.Repositories
 
         private readonly PostDbContext _dbContext;
 
-        public AuthorRepository(PostDbContext dbContext)
+        public AuthorProvider(PostDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public void AddAuthor(Author author)
+        public Author AddAuthor(Author author)
         {
             var authorDb = _mapper.Map<Database.Models.Author>(author);
             _dbContext.Add(authorDb);
             _dbContext.SaveChanges();
+
+            return author;
         }
 
-        public void DeleteAuthor(Guid guid)
+        public Author? DeleteAuthor(Guid guid)
         {
             var authorDb = _dbContext.Authors.FirstOrDefault(a => a.AuthorId == guid);
-            if (authorDb == null) return;
+            if (authorDb == null) return null;
 
             _dbContext.Authors.Remove(authorDb);
             _dbContext.SaveChanges();
+
+            return _mapper.Map<Author>(authorDb);
         }
 
         public Author GetAuthor(Guid guid)
@@ -53,13 +55,15 @@ namespace CQRS.Infrastructure.Repositories
             return _mapper.Map<List<Author>>(authorsDb);
         }
 
-        public void UpdateAuthor(Author author)
+        public Author? UpdateAuthor(Author author)
         {
             var authorDb = _dbContext.Authors.FirstOrDefault(a => a.AuthorId == author.Id);
-            if (authorDb == null) return;
+            if (authorDb == null) return null;
 
             _mapper.Map(author, authorDb);
             _dbContext.SaveChanges();
+
+            return author;
         }
     }
 }

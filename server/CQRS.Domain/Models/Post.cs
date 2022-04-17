@@ -1,4 +1,4 @@
-﻿namespace CQRS.Domain
+﻿namespace CQRS.Domain.Models
 {
     public class Post
     {

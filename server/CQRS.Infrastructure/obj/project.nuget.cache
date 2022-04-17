@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uvKh54XaqoLvbtC5iWywUYc+M33fUR9we6Vs3prJvJXsicSbMIl+YziXwpG/W1ZRPLI52z2+tFz5g52geZBiRQ==",
+  "dgSpecHash": "cgca+vmwPXke5J0LPSufoMnrCM2ZPyXBLMMDYUeYEOMT2Rvnvq2Kxl9iB9aINTyQp5v+B4gn1rttPYW2PUPsnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ulanicki\\OneDrive - Primesoft Polska Sp. z o.o\\Dokumenty\\Projekt\\server\\CQRS.Infrastructure\\CQRS.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ulanicki\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

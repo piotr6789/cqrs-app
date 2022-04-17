@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
-using CQRS.Domain;
+using CQRS.Domain.Models;
+using CQRS.Domain.Core;
 using CQRS.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace CQRS.Infrastructure.Repositories
+namespace CQRS.Infrastructure.Providers
 {
-    public class PostRepository : IPostRepository
+    public class PostProvider : IPostProvider
     {
         private static readonly IMapper _mapper = new MapperConfiguration(cfg =>
         {
@@ -19,25 +20,29 @@ namespace CQRS.Infrastructure.Repositories
 
         private readonly PostDbContext _dbContext;
 
-        public PostRepository(PostDbContext dbContext)
+        public PostProvider(PostDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void AddPost(Post post)
+        public Post AddPost(Post post)
         {
             var postDb = _mapper.Map<Database.Models.Post>(post);
             _dbContext.Add(postDb);
             _dbContext.SaveChanges();
+
+            return post;
         }
 
-        public void DeletePost(Guid guid)
+        public Post? DeletePost(Guid guid)
         {
             var postDb = _dbContext.Posts.FirstOrDefault(p => p.PostId == guid);
-            if (postDb == null) return;
+            if (postDb == null) return null;
 
             _dbContext.Posts.Remove(postDb);
             _dbContext.SaveChanges();
+
+            return _mapper.Map<Post>(postDb);
         }
 
         public Post GetPost(Guid guid)
@@ -54,13 +59,15 @@ namespace CQRS.Infrastructure.Repositories
             return _mapper.Map<List<Post>>(postsDb);
         }
 
-        public void UpdatePost(Post post)
+        public Post? UpdatePost(Post post)
         {
             var postDb = _dbContext.Posts.FirstOrDefault(p => p.PostId == post.Id);
-            if (postDb == null) return;
+            if (postDb == null) return null;
 
             _mapper.Map(post, postDb);
             _dbContext.SaveChanges();
+
+            return post;
         }
     }
 }

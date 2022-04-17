@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oRfc1uYSpVQH6+eYYIeXzKwoYZ8IqM/hbt15HmMU1YcJ1sKgf43snX2+vqdRjjtlHJsluMeBEN7krXhh/hGrUg==",
+  "dgSpecHash": "+a5GLfS68Rtbdc5kD80fdfWdU9uRjhauH2tuunQHI1SbYdROcE1689jKqdGww7HOrmpyTzNpE3zRDo9SzEYCdQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ulanicki\\OneDrive - Primesoft Polska Sp. z o.o\\Dokumenty\\Projekt\\server\\CQRS.API\\CQRS.API.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\ulanicki\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ulanicki\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.applicationinsights\\2.20.0\\microsoft.applicationinsights.2.20.0.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.4\\microsoft.aspnetcore.jsonpatch.6.0.4.nupkg.sha512",
     "C:\\Users\\ulanicki\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.4\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.4.nupkg.sha512",
