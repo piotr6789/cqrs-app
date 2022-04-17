@@ -71,7 +71,7 @@ namespace CQRS.API.Controllers
                 return StatusCode(500, ex);
             }
         }
-        
+
         [SwaggerOperation(Summary = "Add a post")]
         [SwaggerResponse(200, type: typeof(List<Post>))]
         [HttpPost("add")]

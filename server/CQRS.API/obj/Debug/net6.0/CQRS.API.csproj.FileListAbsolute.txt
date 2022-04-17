@@ -79,3 +79,4 @@ C:\Users\ulanicki\OneDrive - Primesoft Polska Sp. z o.o\Dokumenty\Projekt\server
 C:\Users\ulanicki\OneDrive - Primesoft Polska Sp. z o.o\Dokumenty\Projekt\server\CQRS.API\bin\Debug\net6.0\MediatR.dll
 C:\Users\ulanicki\OneDrive - Primesoft Polska Sp. z o.o\Dokumenty\Projekt\server\CQRS.API\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Users\ulanicki\OneDrive - Primesoft Polska Sp. z o.o\Dokumenty\Projekt\server\CQRS.API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\ulanicki\OneDrive - Primesoft Polska Sp. z o.o\Dokumenty\Projekt\server\CQRS.API\obj\Debug\net6.0\CQRS.API.MvcApplicationPartsAssemblyInfo.cs

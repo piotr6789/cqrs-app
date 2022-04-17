@@ -1,0 +1,30 @@
+{
+  "PL": {
+    "POSTS": "Posty",
+    "NEW_POST": "Dodaj post",
+    "LANGUAGE": "Język",
+    "POLISH": "Polski",
+    "ENGLISH": "Angielski",
+    "NEW_POST_TITLE": "Nowy post",
+    "DESCRIPTION": "Opis",
+    "CREATE": "Stwórz",
+    "AUTHOR": "Autor",
+    "CONTENT": "Treść",
+    "NO_POST": "Dodaj jakiś post...",
+    "AGE": "Wiek"
+  },
+  "ENG": {
+    "POSTS": "Posts",
+    "NEW_POST": "Add post",
+    "LANGUAGE": "Language",
+    "POLISH": "Polish",
+    "ENGLISH": "English",
+    "NEW_POST_TITLE": "New post",
+    "DESCRIPTION": "Description",
+    "CREATE": "Create",
+    "AUTHOR": "Author",
+    "CONTENT": "Content",
+    "NO_POST": "Add any post...",
+    "AGE": "Age"
+  }
+}
